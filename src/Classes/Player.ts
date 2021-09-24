@@ -1,6 +1,6 @@
 export class Player {
-  protected x: number;
-  protected y: number;
+  public x: number;
+  public y: number;
   protected health: number;
   protected playerClass: string;
   protected inventory: string[];

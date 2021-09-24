@@ -1,4 +1,4 @@
-export default class Npc {
+export class Npc {
   protected x: number;
   protected y: number;
   protected health: number;
