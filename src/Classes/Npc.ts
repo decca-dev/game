@@ -1,9 +1,9 @@
 export class Npc {
-  protected x: number;
-  protected y: number;
+  public x: number;
+  public y: number;
   protected health: number;
-  protected type: string;
-  protected id: string;
+  public type: string;
+  public id: string;
 
   constructor(x: number, y: number, type: string, id: string) {
     this.x = x;
