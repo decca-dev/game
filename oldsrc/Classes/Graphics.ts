@@ -24,7 +24,7 @@ export class Graphics {
     }
   }
 
-  public movePixel(oldIndex: number, newIndex: number): void {
+  public movePixel(oldIndex: number, newIndex: number, pos: Vec): void {
     if (this.frame[oldIndex] === EMPTY_SPACE) {
       return console.log("Old index pixel cannot be an empty space!");
     } else if (this.frame[newIndex] !== EMPTY_SPACE) {
@@ -32,6 +32,9 @@ export class Graphics {
     }
 
     swapElments(this.frame, oldIndex, newIndex);
+
+    pos.y = newIndex % this._width;
+    pos.x = newIndex - pos.y * this._width;
   }
 
   public render(): string {

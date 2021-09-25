@@ -17,10 +17,8 @@
     "url": "https://github.com/decca-dev/game/issues"
   },
   "homepage": "https://github.com/decca-dev/game#readme",
-  "dependencies": {
-    "inquirer": "^8.1.5"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/inquirer": "^8.1.2"
+    "@types/node": "^16.10.0"
   }
 }

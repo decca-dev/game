@@ -1,13 +1,16 @@
 import { Graphics, Player, Npc, Vec } from "./Classes";
 import { PLAYER, NPC } from "./Utils/Constants";
+import { move } from "./Utils/Move";
+import { char } from "./Types/CharType";
+import readline from "readline";
+
+const stdin = process.stdin.setRawMode(true);
+readline.emitKeypressEvents(stdin);
 
 const board = new Graphics();
 
-// let px = Math.floor(Math.random() * 15);
-// let py = Math.floor(Math.random() * 8);
-
-let px = 6;
-let py = 5;
+let px = Math.floor(Math.random() * 15);
+let py = Math.floor(Math.random() * 8);
 
 const player = new Player(px, py, "Knight");
 
@@ -17,18 +20,17 @@ board.setPixel(playerVec, PLAYER);
 
 console.log(board.render());
 
-const old = py * 15 + px;
-const newIndex = py * 15 + (px + 1);
+stdin.on("keypress", (str, key) => {
+  if (key && key.ctrl && key.name === "c") process.exit();
+  if (["u", "d", "l", "r"].includes(key.name[0])) {
+    let str: char = key.name[0];
 
-board.movePixel(old, newIndex);
+    const oldIndex = playerVec.y * 15 + playerVec.x;
 
-console.log(board.render());
+    const newIndex = move(oldIndex, str);
 
-// let nx = Math.floor(Math.random() * 15);
-// let ny = Math.floor(Math.random() * 8);
+    board.movePixel(oldIndex, newIndex, playerVec);
 
-// const npc = new Npc(nx, ny, "Thief", "000");
-
-// const npcVec = new Vec(npc.x, npc.y);
-
-// board.setPixel(npcVec, NPC);
+    console.log(board.render());
+  }
+});
