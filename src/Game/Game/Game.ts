@@ -1,13 +1,13 @@
-import { pixel } from "../typings/graphics";
+import { pixel, GraphicsOptions } from "../typings/graphics";
+import { Graphics } from "../Graphics/Graphics";
+import { GameOptions } from "../typings/game";
 
 export class Game {
-  public frameBuffer!: any;
-  public width!: number;
-  public height!: number;
+  public gfx: Graphics;
 
-  public setPixel(x: number, y: number, v: pixel): void {}
+  constructor({ background, width, height }: GraphicsOptions & GameOptions) {
+    this.gfx = new Graphics({ width, height, background });
+  }
 
-  public render(): void {}
-
-  public reset(): void {}
+  public render(): string {}
 }

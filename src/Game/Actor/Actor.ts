@@ -1,4 +1,4 @@
-import { Vec } from "../../Classes";
+import { Vec } from "../Vec/Vec";
 import { Sprite } from "./Sprite";
 
 export abstract class Actor {
